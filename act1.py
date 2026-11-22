@@ -1,18 +1,20 @@
 import timeit
 import cProfile
 from collections import deque
-
-def appendMethod(n: int):
-    nums = []
-    for i in range(n):
-        nums.append(i)
-    return nums
+import math
 
 def insertMethod(n: int):
     nums = []
     for i in range(n):
         nums.insert(0, i)
     return nums
+""" def appendMethod(n: int):
+    nums = []
+    for i in range(n):
+        nums.append(i)
+    return nums
+
+
 
 def appendLeftMethod(n: int):
     nums = deque()
@@ -20,21 +22,24 @@ def appendLeftMethod(n: int):
         nums.appendleft(i)
     return nums
 
-print("Append (10_000): ", timeit.timeit(lambda: appendMethod(10_000), number=100))
-print("Insert (10_000): ", timeit.timeit(lambda: insertMethod(10_000), number=100))
-print("Append Left (10_000): ", timeit.timeit(lambda: appendLeftMethod(10_000), number=100))
+print("Append (10_000): ", timeit.timeit(lambda: appendMethod(10_000), number=100) * 1000, "ms" )
+print("Insert (10_000): ", timeit.timeit(lambda: insertMethod(10_000), number=100) * 1000, "ms")
+print("Append Left (10_000): ", timeit.timeit(lambda: appendLeftMethod(10_000), number=100) * 1000, "ms")
+print()
 
-print("Append (20_000): ", timeit.timeit(lambda: appendMethod(20_000), number=100))
-print("Insert (20_000): ", timeit.timeit(lambda: insertMethod(20_000), number=100))
-print("Append Left (20_000): ", timeit.timeit(lambda: appendLeftMethod(20_000), number=100))
+print("Append (20_000): ", timeit.timeit(lambda: appendMethod(20_000), number=100) * 1000, "ms")
+print("Insert (20_000): ", timeit.timeit(lambda: insertMethod(20_000), number=100) * 1000, "ms")
+print("Append Left (20_000): ", timeit.timeit(lambda: appendLeftMethod(20_000), number=100) * 1000, "ms")
+print()
 
-print("Append (40_000): ", timeit.timeit(lambda: appendMethod(40_000), number=100))
-print("Insert (40_000): ", timeit.timeit(lambda: insertMethod(40_000), number=100))
-print("Append Left (40_000): ", timeit.timeit(lambda: appendLeftMethod(40_000), number=100))
+print("Append (40_000): ", timeit.timeit(lambda: appendMethod(40_000), number=100) * 1000,  "ms")
+print("Insert (40_000): ", timeit.timeit(lambda: insertMethod(40_000), number=100) * 1000, "ms")
+print("Append Left (40_000): ", timeit.timeit(lambda: appendLeftMethod(40_000), number=100) * 1000, "ms")
+print()
 
-print("Append (80_000): ", timeit.timeit(lambda: appendMethod(80_000), number=100))
-print("Insert (80_000): ", timeit.timeit(lambda: insertMethod(80_000), number=100))
-print("Append Left (80_000): ", timeit.timeit(lambda: appendLeftMethod(80_000), number=100))
+print("Append (80_000): ", timeit.timeit(lambda: appendMethod(80_000), number=100) * 1000, "ms")
+print("Insert (80_000): ", timeit.timeit(lambda: insertMethod(80_000), number=100) * 1000, "ms")
+print("Append Left (80_000): ", timeit.timeit(lambda: appendLeftMethod(80_000), number=100) * 1000, "ms")
 
 def listTime(n):
     return list(range(n))
@@ -45,21 +50,24 @@ def setTime(n):
 def dictTime(n):
     return {i: i for i in range(n)}
 
-print("List (50_000): ", timeit.timeit("-1 in c", globals={"c": listTime(50_000)}, number=10_000) * 1000)
-print("Set (50_000): ", timeit.timeit("-1 in c", globals={"c": setTime(50_000)}, number=10_000) * 1000)
-print("Dict (50_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(50_000)}, number=10_000) * 1000)
+print("List (50_000): ", timeit.timeit("-1 in c", globals={"c": listTime(50_000)}, number=10_000) * 1000, "ms")
+print("Set (50_000): ", timeit.timeit("-1 in c", globals={"c": setTime(50_000)}, number=10_000) * 1000, "ms")
+print("Dict (50_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(50_000)}, number=10_000) * 1000, "ms")
+print()
 
-print("List (100_000): ", timeit.timeit("-1 in c", globals={"c": listTime(100_000)}, number=10_000) * 1000)
-print("Set (100_000): ", timeit.timeit("-1 in c", globals={"c": setTime(100_000)}, number=10_000) * 1000)
-print("Dict (100_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(100_000)}, number=10_000) * 1000)
+print("List (100_000): ", timeit.timeit("-1 in c", globals={"c": listTime(100_000)}, number=10_000) * 1000, "ms")
+print("Set (100_000): ", timeit.timeit("-1 in c", globals={"c": setTime(100_000)}, number=10_000) * 1000, "ms")
+print("Dict (100_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(100_000)}, number=10_000) * 1000, "ms")
+print()
 
-print("List (200_000): ", timeit.timeit("-1 in c", globals={"c": listTime(200_000)}, number=10_000) * 1000)
-print("Set (200_000): ", timeit.timeit("-1 in c", globals={"c": setTime(200_000)}, number=10_000) * 1000)
-print("Dict (200_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(200_000)}, number=10_000) * 1000)
+print("List (200_000): ", timeit.timeit("-1 in c", globals={"c": listTime(200_000)}, number=10_000) * 1000, "ms")
+print("Set (200_000): ", timeit.timeit("-1 in c", globals={"c": setTime(200_000)}, number=10_000) * 1000, "ms")
+print("Dict (200_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(200_000)}, number=10_000) * 1000, "ms")
+print()
 
-print("List (400_000): ", timeit.timeit("-1 in c", globals={"c": listTime(400_000)}, number=10_000) * 1000)
-print("Set (400_000): ", timeit.timeit("-1 in c", globals={"c": setTime(400_000)}, number=10_000) * 1000)
-print("Dict (400_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(400_000)}, number=10_000) * 1000)
+print("List (400_000): ", timeit.timeit("-1 in c", globals={"c": listTime(400_000)}, number=10_000) * 1000, "ms")
+print("Set (400_000): ", timeit.timeit("-1 in c", globals={"c": setTime(400_000)}, number=10_000) * 1000, "ms")
+print("Dict (400_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(400_000)}, number=10_000) * 1000, "ms")
 
 
 def build_audit_report(records):
@@ -88,5 +96,9 @@ def build_audit_report(records):
 n = 30_000
 records = [(i % 25_000, f"label{i}") for i in range(n)]
 
-cProfile.run("build_audit_report(records)", sort="tottime") 
+cProfile.run("build_audit_report(records)", sort="tottime")  """
 
+print("Insert (100_000): ", timeit.timeit(lambda: insertMethod(100_000), number=100) * 1000, "ms") 
+""" print(0.1 + 0.2)
+print(0.1 + 0.2 == 0.3)
+print(math.isclose(0.1 + 0.2, 0.3))  """
