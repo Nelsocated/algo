@@ -3,18 +3,17 @@ import cProfile
 from collections import deque
 import math
 
-def insertMethod(n: int):
-    nums = []
-    for i in range(n):
-        nums.insert(0, i)
-    return nums
-""" def appendMethod(n: int):
+def appendMethod(n: int):
     nums = []
     for i in range(n):
         nums.append(i)
     return nums
 
-
+def insertMethod(n: int):
+    nums = []
+    for i in range(n):
+        nums.insert(0, i)
+    return nums
 
 def appendLeftMethod(n: int):
     nums = deque()
@@ -96,9 +95,10 @@ def build_audit_report(records):
 n = 30_000
 records = [(i % 25_000, f"label{i}") for i in range(n)]
 
-cProfile.run("build_audit_report(records)", sort="tottime")  """
+cProfile.run("build_audit_report(records)", sort="tottime") 
 
 print("Insert (100_000): ", timeit.timeit(lambda: insertMethod(100_000), number=100) * 1000, "ms") 
-""" print(0.1 + 0.2)
+
+print(0.1 + 0.2)
 print(0.1 + 0.2 == 0.3)
-print(math.isclose(0.1 + 0.2, 0.3))  """
+print(math.isclose(0.1 + 0.2, 0.3)) 
