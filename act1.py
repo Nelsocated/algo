@@ -3,6 +3,7 @@ import cProfile
 from collections import deque
 import math
 
+""" Expt 1 """
 def appendMethod(n: int):
     nums = []
     for i in range(n):
@@ -40,6 +41,7 @@ print("Append (80_000): ", timeit.timeit(lambda: appendMethod(80_000), number=10
 print("Insert (80_000): ", timeit.timeit(lambda: insertMethod(80_000), number=100) * 1000, "ms")
 print("Append Left (80_000): ", timeit.timeit(lambda: appendLeftMethod(80_000), number=100) * 1000, "ms")
 
+""" Expt 2 """
 def listTime(n):
     return list(range(n))
 
@@ -68,7 +70,7 @@ print("List (400_000): ", timeit.timeit("-1 in c", globals={"c": listTime(400_00
 print("Set (400_000): ", timeit.timeit("-1 in c", globals={"c": setTime(400_000)}, number=10_000) * 1000, "ms")
 print("Dict (400_000): ", timeit.timeit("-1 in c", globals={"c": dictTime(400_000)}, number=10_000) * 1000, "ms")
 
-
+""" Expt 3 """
 def build_audit_report(records):
     unique_ids = []
     report = ""
@@ -97,6 +99,7 @@ records = [(i % 25_000, f"label{i}") for i in range(n)]
 
 cProfile.run("build_audit_report(records)", sort="tottime") 
 
+""" Expt 4 """
 print("Insert (100_000): ", timeit.timeit(lambda: insertMethod(100_000), number=100) * 1000, "ms") 
 
 print(0.1 + 0.2)
